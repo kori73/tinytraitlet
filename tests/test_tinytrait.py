@@ -1,7 +1,6 @@
 import pytest
 
-from tinytraitlet import Traitful, String, validate
-from tinytraitlet.tinytraitlet import TraitError
+from tinytraitlet import Traitful, String, validate, TraitError
 
 
 class Tester(Traitful):
@@ -49,6 +48,7 @@ class GrandChild(ChildTester):
 class VeryGrandChild(GrandChild):
     @validate("latest")
     def latest_validator(self, value): return value
+
 
 def test_model():
     tester = Tester()
